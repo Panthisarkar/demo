@@ -5,54 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nepali Speech to English Translator</title>
   <style>
+    /* Global Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
-      padding: 20px;
-      background-color: #f8f3f3; /* Light maroon background */
-      color: #800000; /* Maroon text */
+      padding: 30px;
+      background-color: #fbe7f2; /* Light pink background */
+      color: #6f004f; /* Deep rose for text */
+      margin: 0;
     }
 
     h1 {
-      color: #800000; /* Maroon heading */
+      color: #6f004f; /* Deep rose heading */
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
 
     p {
       font-size: 1.1em;
-      color: #4d0000; /* Slightly darker maroon */
+      color: #8e1d66; /* Slightly darker pink */
+      margin-bottom: 30px;
     }
 
+    /* Button Styles */
     button {
       margin: 10px;
-      padding: 10px 20px;
-      font-size: 1em;
+      padding: 12px 24px;
+      font-size: 1.1em;
       color: #fff; /* White text */
-      background-color: #800000; /* Maroon background */
+      background-color: #f1678e; /* Soft pink button */
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
     }
 
     button:hover {
-      background-color: #4d0000; /* Darker maroon on hover */
+      background-color: #c14c75; /* Darker pink on hover */
+      transform: scale(1.05); /* Slight button zoom */
     }
 
     button:disabled {
-      background-color: #d9d9d9; /* Gray background for disabled button */
-      color: #7a7a7a; /* Gray text for disabled button */
+      background-color: #e4a6c9; /* Light grayish pink for disabled button */
+      color: #9e7f8c; /* Gray text */
       cursor: not-allowed;
     }
 
+    /* Output Box Styles */
     #output {
-      margin-top: 20px;
-      font-size: 1.2em;
-      color: #4d0000; /* Darker maroon */
-      border: 2px solid #800000; /* Maroon border */
-      padding: 15px;
-      border-radius: 10px;
-      background-color: #fff; /* White background for output */
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      margin-top: 30px;
+      font-size: 1.3em;
+      color: #6f004f; /* Deep rose */
+      border: 3px solid #f1678e; /* Soft pink border */
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #fff; /* White background */
+      width: 80%;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      button {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+
+      #output {
+        font-size: 1.1em;
+        padding: 15px;
+      }
     }
   </style>
 </head>
