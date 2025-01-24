@@ -1,7 +1,9 @@
 const startButton = document.getElementById("startRecording");
 const stopButton = document.getElementById("stopRecording");
 const outputDiv = document.getElementById("output");
-
+const audioIcon = document.querySelector('.audio-icon');
+const statusText = document.querySelector('.status-text');
+ 
 let recognition;
 let isRecording = false;
 
@@ -15,6 +17,8 @@ if ("webkitSpeechRecognition" in window) {
   recognition.onstart = () => {
     isRecording = true;
     outputDiv.textContent = "Recording... Speak now.";
+    audioIcon.classList.add('recording');
+    statusText.classList.add('active');
   };
 
   recognition.onresult = async (event) => {
@@ -25,6 +29,7 @@ if ("webkitSpeechRecognition" in window) {
 
     // Convert English text to speech (without displaying it)
     speakText(englishText);
+    outputDiv.textContent = "Translating your speech...";
   };
 
   recognition.onerror = (event) => {
@@ -46,6 +51,7 @@ startButton.addEventListener("click", () => {
     recognition.start();
     startButton.disabled = true;
     stopButton.disabled = false;
+    
   }
 });
 
@@ -55,6 +61,8 @@ stopButton.addEventListener("click", () => {
     recognition.stop();
     startButton.disabled = false;
     stopButton.disabled = true;
+    audioIcon.classList.remove('recording');
+    statusText.classList.remove('active');
   }
 });
 
