@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nepali Speech to English Translator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f8f3f3; /* Light maroon background */
+      color: #800000; /* Maroon text */
+    }
+
+    h1 {
+      color: #800000; /* Maroon heading */
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #4d0000; /* Slightly darker maroon */
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      color: #fff; /* White text */
+      background-color: #800000; /* Maroon background */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #4d0000; /* Darker maroon on hover */
+    }
+
+    button:disabled {
+      background-color: #d9d9d9; /* Gray background for disabled button */
+      color: #7a7a7a; /* Gray text for disabled button */
+      cursor: not-allowed;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #4d0000; /* Darker maroon */
+      border: 2px solid #800000; /* Maroon border */
+      padding: 15px;
+      border-radius: 10px;
+      background-color: #fff; /* White background for output */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+  </style>
+</head>
+<body>
+  <h1>Nepali Speech to English Translator</h1>
+  <p>Click the button below to record your Nepali speech:</p>
+  <button id="startRecording">Start Recording</button>
+  <button id="stopRecording" disabled>Stop Recording</button>
+  <div id="output"></div>
+  <script src="speech.js"></script>
+</body>
+</html>
