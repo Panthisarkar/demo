@@ -263,8 +263,7 @@ class AudioRecorder {
   translatedAudioPlayer.pause(); // Pause the audio
   translatedAudioPlayer.currentTime = 0; // Reset to the beginning
   this.stopTimer();
-  // Start a new recording
-  this.startRecording();
+ 
   // Reset the audio player
   this.elements.audioPlayer.src = "";
   }
