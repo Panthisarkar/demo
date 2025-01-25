@@ -24,6 +24,7 @@ class AudioRecorder {
       recordNo: document.getElementById("recordNo"),
       loadingSpinner: document.getElementById("loadingSpinner"),
       listeningMessage: document.getElementById("listeningMessage"),
+      translatedAudioPlayer: document.getElementById("translatedAudioPlayer"),
     };
 
     // Recording state variables
@@ -223,7 +224,7 @@ class AudioRecorder {
       }
 
       if (data.audio && data.audio.startsWith("data:audio/wav;base64,")) {
-        this.playAudioFromUrl(data.audio);
+        this.playTranslatedAudioFromUrl(data.audio);
         this.elements.loadingSpinner.style.display = "none";
         this.elements.recordAgainPrompt.style.display = "block";
       } else {
@@ -235,13 +236,17 @@ class AudioRecorder {
       alert(`Processing failed: ${error.message}`);
       this.elements.translationPrompt.style.display = "none";
       this.elements.recordAgainPrompt.style.display = "block";
-    }
+    };
   }
+  
+    
+  
 
-  playAudioFromUrl(audioUrl) {
-    this.elements.audioPlayer.src = audioUrl;
-    this.elements.audioPlayer.load();
-    this.elements.audioPlayer.play();
+  playTranslatedAudioFromUrl(audioUrl) {
+    this.elements.translatedAudioPlayer.src = audioUrl;
+    this.elements.translatedAudioPlayer.load();
+    this.elements.translatedAudioPlayer.play();
+    document.getElementById("translatedAudioSection").style.display = "block";
   }
 
   cancelTranslation() {
@@ -252,7 +257,18 @@ class AudioRecorder {
   recordAgain() {
     this.elements.recordAgainPrompt.style.display = "none";
     this.startRecording();
+    document.getElementById("translatedAudioSection").style.display = "none";
+     // Stop the audio playback and reset it
+  const translatedAudioPlayer = document.getElementById("translatedAudioPlayer");
+  translatedAudioPlayer.pause(); // Pause the audio
+  translatedAudioPlayer.currentTime = 0; // Reset to the beginning
+  this.stopTimer();
+  // Start a new recording
+  this.startRecording();
+  // Reset the audio player
+  this.elements.audioPlayer.src = "";
   }
+
 
   endSession() {
     alert("Thank you for using the app!");
